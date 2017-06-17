@@ -1,6 +1,8 @@
 var $ = require('jquery');
 
 $(document).ready(function() {
-	console.log('fucker');
-	console.log('explosion');
+	$(".navbar__icon").click(function() {
+		$(".navbar__icon").toggleClass("active");
+		$(".navbar__content").children().slideToggle(200);
+	});
 });

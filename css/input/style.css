@@ -1,6 +1,8 @@
 @import "normalize.css";
 @import "font.css";
 @import "global.css";
+@import "navbar.css";
+@import "landing.css";
 @import "block.css";
 
 /*$mainColor: #000000;
