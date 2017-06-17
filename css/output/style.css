@@ -468,7 +468,7 @@ body {
 	}
 
 .block__article {
-		margin: 25px 0;
+		margin: 25px auto;
 		padding: 0 20px;
 		text-align: justify;
 	}
@@ -478,8 +478,7 @@ body {
 		}
 
 .block__article__quote {
-			margin-top: 15px;
-			margin-bottom: 25px;
+			margin: 15px auto;
 			color: #F1C2A4;
 			font: 14pt NuevaStd, serif;
 			letter-spacing: 2pt;
@@ -490,11 +489,37 @@ body {
 			font: 14pt Miriam, sans-serif;
 			border-left: #FFFFFF 1px solid;
 			padding: 0 20px;
+			margin: 30px 0;
 			line-height: 21pt;
 		}
 
 .block__article__content:first-letter {
 			font-size: 22pt;
+		}
+
+.block__article__image-list {
+			display: inline-block;
+		}
+
+/*margin: 0px auto;*/
+
+.block__article__image-list__image-item {
+				float: left;
+			}
+
+.block__article__image-list:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+.block__article__overflow-item {
+			margin: 0 -20px;
+		}
+
+.block__article__video-size {
+			width: 100%;
+			height: auto;
 		}
 
 /*$mainColor: #000000;
