@@ -10334,7 +10334,7 @@ var $ = __webpack_require__(0);
 
 $(document).ready(function() {
 	console.log('fucker');
-	console.log('dicker');
+	console.log('explosion');
 });
 
 /***/ })

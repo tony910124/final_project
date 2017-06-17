@@ -10,14 +10,14 @@ browserSync = require('browser-sync').create();
 webpack = require('webpack');
 
 gulp.task('cssInject', ['styles'], function() {
-	return gulp.src('./css/styles/style.css')
+	return gulp.src('./css/input/style.css')
 		.pipe(browserSync.stream());
 });
 
 gulp.task('styles', function() {
-	return gulp.src('./css/postcss/style.css')
+	return gulp.src('./css/input/style.css')
 		.pipe(postcss([cssImport, mixins, cssvars, nested, autoprefixer]))
-		.pipe(gulp.dest('./css/styles'));
+		.pipe(gulp.dest('./css/output'));
 });
 
 gulp.task('scriptRefresh', ['scripts'], function() {
@@ -47,11 +47,11 @@ gulp.task('watch', function() {
 		browserSync.reload();
 	});
 
-	watch('./css/postcss/*.css', function() {
+	watch('./css/input/*.css', function() {
 		gulp.start('cssInject');
 	});
 
-	watch('./js/scripts/*.js', function() {
+	watch('./js/input/*.js', function() {
 		gulp.start('scriptRefresh');
 	});
 });
