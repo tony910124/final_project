@@ -463,8 +463,55 @@ body {
 	background-color: #000000;
 }
 
+.landing {
+	display: inline-block;
+}
+
+.landing__image {
+		vertical-align: bottom;
+	}
+
+.landing__title {
+		position: absolute;
+		top: 50%;
+		color: #fff;
+		font: 32pt NuevaStd, serif;
+		width: 100%;
+		text-align: center;
+		line-height: 40pt;
+		height: 32pt;
+		letter-spacing: 2pt;
+	}
+
+.landing__slogan {
+		position: absolute;
+		top: 60%;
+		font: 24pt NuevaStd, serif;
+		width: 100%;
+		text-align: center;
+		height: 24pt;
+	}
+
+.landing__slogan a {
+			display: inline-block;
+			text-decoration: none;
+			color: #fff;
+			border: #fff 1px solid;
+			line-height: 30pt;
+			height: 24pt;
+			letter-spacing: 2pt;
+			padding: 0 10px;
+			-webkit-transition: 0.4s;
+			transition: 0.4s;
+		}
+
+.landing__slogan a:hover {
+			background-color: #AAAAAA;
+		}
+
 .navbar {
 	position: fixed;
+	z-index: 1;
 	width: 100%;
 	height: 60px;
 	background-color: #000;
@@ -587,10 +634,6 @@ body {
 	top: 0;
 	transform: rotate(135deg);
 }*/
-
-.landing-image {
-	vertical-align: bottom;
-}
 
 .block__title {
 

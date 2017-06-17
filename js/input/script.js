@@ -19,4 +19,11 @@ $(document).ready(function() {
 
 		//console.log($(id).offset().top);
 	});
+
+	$(".landing__slogan a").click(function() {
+		var navbarHeight = 60;		
+		$("html body").stop().animate({
+			scrollTop: $("#introduction").offset().top - navbarHeight
+		}, 1000);
+	});
 });

@@ -1,3 +1,45 @@
-.landing-image {
-	vertical-align: bottom;
+.landing {
+	display: inline-block;
+
+	&__image {
+		vertical-align: bottom;
+	}
+
+	&__title {
+		position: absolute;
+		top: 50%;
+		color: #fff;
+		font: 32pt NuevaStd, serif;
+		width: 100%;
+		text-align: center;
+		line-height: 40pt;
+		height: 32pt;
+		letter-spacing: 2pt;
+	}
+
+	&__slogan {
+		position: absolute;
+		top: 60%;
+		font: 24pt NuevaStd, serif;
+		width: 100%;
+		text-align: center;
+		height: 24pt;
+
+		a {
+			display: inline-block;
+			text-decoration: none;
+			color: #fff;
+			border: #fff 1px solid;
+			line-height: 30pt;
+			height: 24pt;
+			letter-spacing: 2pt;
+			padding: 0 10px;
+			transition: 0.4s;
+		}
+
+		a:hover {
+			background-color: #AAAAAA;
+		}
+	}
 }
+
