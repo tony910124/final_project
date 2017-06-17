@@ -1,0 +1,28 @@
+@import "normalize.css";
+$mainColor: #FF0000;
+
+
+body {
+	color: $mainColor;
+}
+
+.large-hero {
+	position: relative;
+}
+
+.large-hero__text-content {
+	position: absolute;
+	text-align: center;
+}
+
+@define-mixin atSmall {
+	@media (max-width: 375px) {
+		@mixin-content;
+	}
+}
+
+.rwd {
+	@mixin atSmall {
+		font-size: 2rem;
+	}
+}
