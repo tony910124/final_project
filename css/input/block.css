@@ -1,0 +1,46 @@
+$borderStyle: solid;
+$borderColor: #FFFFFF;
+$borderWidth: 1px;
+$quoteColor: #F1C2A4;
+$quoteFontFamily: NuevaStd;
+$quoteFontSize: 14pt;
+$contentColor: #FFFFFF;
+$contentFontFamily: Miriam;
+$contentFontSize: 14pt;
+
+.block {
+
+	&__title {
+
+	}
+
+	&__article {
+		margin: 25px 0;
+		padding: 0 20px;
+		text-align: justify;
+
+		&__frame-img {
+			border: $borderColor $borderWidth $borderStyle;
+		}
+
+		&__quote {
+			margin-top: 15px;
+			margin-bottom: 25px;
+			color: $quoteColor;
+			font: $quoteFontSize $quoteFontFamily, serif;
+			letter-spacing: 2pt;
+		}
+
+		&__content {
+			color: $contentColor;
+			font: $contentFontSize $contentFontFamily, sans-serif;
+			border-left: $borderColor $borderWidth $borderStyle;
+			padding: 0 20px;
+			line-height: 21pt;
+		}
+
+		&__content:first-letter {
+			font-size: 22pt;
+		}
+	}
+}

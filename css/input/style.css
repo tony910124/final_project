@@ -1,5 +1,9 @@
 @import "normalize.css";
-$mainColor: #000000;
+@import "font.css";
+@import "global.css";
+@import "block.css";
+
+/*$mainColor: #000000;
 
 
 body {
@@ -25,4 +29,4 @@ body {
 	@mixin atSmall {
 		font-size: 2rem;
 	}
-}
+}*/

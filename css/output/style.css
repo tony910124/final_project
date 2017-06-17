@@ -449,8 +449,59 @@ template {
   display: none;
 }
 
+@font-face {
+	font-family: NuevaStd;
+	src: url("../../fonts/NuevaStd-Italic.otf");
+}
+
+@font-face {
+	font-family: Miriam;
+	src: url("../../fonts/mriam.ttf");
+}
+
 body {
-	color: #000000;
+	background-color: #000000;
+}
+
+.block__title {
+
+	}
+
+.block__article {
+		margin: 25px 0;
+		padding: 0 20px;
+		text-align: justify;
+	}
+
+.block__article__frame-img {
+			border: #FFFFFF 1px solid;
+		}
+
+.block__article__quote {
+			margin-top: 15px;
+			margin-bottom: 25px;
+			color: #F1C2A4;
+			font: 14pt NuevaStd, serif;
+			letter-spacing: 2pt;
+		}
+
+.block__article__content {
+			color: #FFFFFF;
+			font: 14pt Miriam, sans-serif;
+			border-left: #FFFFFF 1px solid;
+			padding: 0 20px;
+			line-height: 21pt;
+		}
+
+.block__article__content:first-letter {
+			font-size: 22pt;
+		}
+
+/*$mainColor: #000000;
+
+
+body {
+	color: $mainColor;
 }
 
 .large-hero {
@@ -462,9 +513,14 @@ body {
 	text-align: center;
 }
 
-@media (max-width: 375px) {
+@define-mixin atSmall {
+	@media (max-width: 375px) {
+		@mixin-content;
+	}
+}
 
 .rwd {
-		font-size: 2rem
-}
+	@mixin atSmall {
+		font-size: 2rem;
 	}
+}*/
