@@ -1,5 +1,10 @@
+html {
+	min-width: 375px;
+}
+
 body {
 	background-color: #000000;
+	min-width: 375px;
 }
 
 @define-mixin atSmall {

@@ -459,15 +459,22 @@ template {
 	src: url("../../fonts/mriam.ttf");
 }
 
+html {
+	min-width: 375px;
+}
+
 body {
 	background-color: #000000;
+	min-width: 375px;
 }
 
 .landing {
 	display: inline-block;
+	position: relative;
 }
 
 .landing__image {
+
 		vertical-align: bottom;
 	}
 

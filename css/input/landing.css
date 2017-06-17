@@ -1,7 +1,9 @@
 .landing {
 	display: inline-block;
+	position: relative;
 
 	&__image {
+
 		vertical-align: bottom;
 	}
 
