@@ -7,6 +7,11 @@ body {
 	min-width: 375px;
 }
 
+footer {
+	border-top: #FFFFFF 1px solid;
+	height: 87px;
+}
+
 @define-mixin atSmall {
 	@media (max-width: 375px) {
 		@mixin-content;

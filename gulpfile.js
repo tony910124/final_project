@@ -43,7 +43,7 @@ gulp.task('watch', function() {
 		}
 	});
 
-	watch('./index.html', function() {
+	watch('./*.html', function() {
 		browserSync.reload();
 	});
 

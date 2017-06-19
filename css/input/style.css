@@ -4,7 +4,8 @@
 @import "landing.css";
 @import "navbar.css";
 @import "block.css";
-
+@import "signInPanel";
+@import "forum";
 
 /*$mainColor: #000000;
 
