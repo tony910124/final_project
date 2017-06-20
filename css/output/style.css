@@ -1461,6 +1461,94 @@ footer {
 }
 	}
 
+.main-area {
+	max-width: 870px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.line {
+	border-top: rgba(100, 100, 100, 0.8) 1px solid;
+}
+
+.user-data-area {
+	margin: 0;
+	padding: 0;
+	color: #FFF;
+	font: 14pt Miriam, sans-serif;
+}
+
+.user-data-area__item {
+		list-style: none;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
+		margin: 10px 0;
+		padding: 0 20px;
+		display: inline-block;
+		width: 100%;
+		background-color: rgba(100, 100, 100, 0.35);
+		border-radius: 8px;
+	}
+
+.user-data-area__item__userName {
+			margin: 12px auto;
+			font-size: 20pt;
+			line-height: 24pt;
+		}
+
+.user-data-area__item__detail {
+		   display: block;
+		   margin: 12px auto;
+		   -webkit-box-sizing: border-box;
+		           box-sizing: border-box;
+
+		}
+
+/*vertical-align: bottom;*/
+
+.user-data-area__item__detail__email {
+			    margin: 10;
+			    text-align: left;
+		   }
+
+.user-data-area__item__detail__talkTimes {
+			    margin: 10;
+			    text-align: left;
+		   }
+
+.user-data-area__item__detail__newUpdate {
+			    margin: 10;
+			    text-align: left;
+		   }
+
+.user-data-area__item__detail__createAt {
+			    margin: 10;
+			    text-align: left;
+		   }
+
+.user-data-area__item__detail:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+.logout-img {
+	position: absolute;
+	right: 0;
+	height: 60px;
+	width: auto;
+	margin: 20px;
+}
+
+@media (max-width: 768px) {
+
+.logout-img {
+		height: 40px;
+		width: auto;
+		margin: 10px
+}
+	}
+
 /*
 
 @import "landing.css";

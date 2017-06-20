@@ -10371,12 +10371,14 @@ $(document).ready(function() {
 			dbUserId.set({
 				email: user.email,
 				username: username,
-				donate: 0
+				donate: 0,
+				createAt: firebase.database.ServerValue.TIMESTAMP,
+				newupdate: firebase.database.ServerValue.TIMESTAMP
 			});
 			window.location.href = "message.html";
 		});
 	}
-	
+
 	function SignIn()
 	{
 		const email = $('#email').val();
@@ -10390,7 +10392,15 @@ $(document).ready(function() {
 
 		promise.then(function() {
 			console.log("Hello");
-			window.location.href = "message.html";
+			if(email == "admin@admin.com"){
+				console.log("manage");
+				window.location.href = "manager.html";
+				UpdateUsers();
+			}
+			else{
+				console.log("massage");
+				window.location.href = "message.html";
+			}
 		});
 	}
 
@@ -10399,49 +10409,28 @@ $(document).ready(function() {
 		window.location.href = "index.html";
 	});
 
-	firebase.auth().onAuthStateChanged(function(user) {
-		console.log("Yee");
-		UpdatePosts();
-	});
-
 	$("#Send").click(function() {
 		const message = $("#message").val();
 		const uid = firebase.auth().currentUser.uid;
 		var username;
 
 		User.child(uid).once('value').then(function(snapshot) {
+			var newtalktimes = snapshot.val().talkTimes + 1;
+			console.log(newtalktimes);
 			username = snapshot.val().username;
 			Posts.push({
 				author: username,
 				message: message,
 				createAt: firebase.database.ServerValue.TIMESTAMP
 			});
+			User.child(uid).update({
+				"talkTimes": newtalktimes,
+				"newUpdate": firebase.database.ServerValue.TIMESTAMP
+			});
 		});
 
 		UpdatePosts();
 	});
-
-	function GetFormattedDate(date) 
-	{
-		var year = date.getFullYear();
-		var month = date.getMonth() + 1;
-		var day = date.getDate();
-		return year + '/' + month + '/' + day;
-	}
-
-	function GetTime(date) 
-	{		
-		var hour = date.getHours().toString();
-		var minute = date.getMinutes().toString();
-		var second = date.getSeconds().toString();
-
-		var zero = "00";
-		hour = zero.substring(0, zero.length - hour.length) + hour;
-		minute = zero.substring(0, zero.length - minute.length) + minute;
-		second = zero.substring(0, zero.length - second.length) + second;
-
-		return hour + ":" + minute + ":" + second;
-	}
 
 
 	function UpdatePosts() {
@@ -10458,7 +10447,7 @@ $(document).ready(function() {
 			data.sort(function(a, b) {
 				return (a.createAt < b.createAt);
 			});
-			
+
 			data.forEach(function(item) {
 				var date = new Date(item.createAt);
 				var time = GetTime(date);
@@ -10482,8 +10471,79 @@ $(document).ready(function() {
 		});
 	}
 
+	firebase.auth().onAuthStateChanged(function(user) {
+		console.log("Yee");
+		UpdateUsers();
+	});
+
+	function UpdateUsers() {
+		var $userDataArea = $(".user-data-area");
+		$userDataArea.empty();
+
+		var data = [];
+		User.once('value', function(snapshot) {
+			snapshot.forEach(function(item){
+				var itemValue = item.val();
+				data.push(itemValue);
+			});
+
+			data.sort(function(a, b) {
+				return (a.createAt < b.createAt);
+			});
+
+			console.log(data);
+			data.forEach(function(item) {
+
+				console.log(item);
+				var update = new Date(item.newUpdate);
+				console.log(item.newUpdate);
+		    update = GetFormattedDate(update);
+		    var createAt = new Date(item.createAt);
+				console.log(item.createAt);
+		    createAt = GetFormattedDate(createAt);
+		    var user = $("<h3>").addClass("user-data-area__item__userName").append(item.username);
+		    var email = $("<h5>").addClass("user-data-area__item__detail__email").append(item.email);
+		    var talkTimes = $("<h5>").addClass("user-data-area__item__detail__talkTimes").append('talkTimes:').append(item.talkTimes);
+		    var newUpdate = $("<h5>").addClass("user-data-area__item__detail__newUpdate").append('newUpdate:').append(update);
+		    var createAt = $("<h5>").addClass("user-data-area__item__detail__createAt").append('createAt:').append(createAt).append($("<br>"));
+		    var detail = $("<div>").addClass("user-data-area__item__detail").append(email).append(talkTimes).append(newUpdate).append(createAt);
+		    var line = $("<div>").addClass("line");
+		    var messageElement = $("<li>").addClass("user-data-area__item").append(user).append(line).append(detail);
+		    $userDataArea.append(messageElement);
+				console.log($userDataArea);
+				/*var titleArea = $("<div>").addClass("title").append(item.title);
+				var authorArea = $("<div>").addClass("detail__author").append(item.author);
+				var timeArea = $("<div>").addClass("detail__time").append(date).append("<br>").append(time);
+				var detail = $("<div>").addClass("detail").append(authorArea).append(timeArea);
+				var line = $("<div>").addClass("line");
+				var postList = $("<li>").addClass("item").append(titleArea).append(line).append(detail).attr("value", item.title);
+				$forumContent.append(postList);*/
+			});
+		});
+	}
 
 
+		function GetFormattedDate(date)
+		{
+			var year = date.getFullYear();
+			var month = date.getMonth() + 1;
+			var day = date.getDate();
+			return year + '/' + month + '/' + day;
+		}
+
+		function GetTime(date)
+		{
+			var hour = date.getHours().toString();
+			var minute = date.getMinutes().toString();
+			var second = date.getSeconds().toString();
+
+			var zero = "00";
+			hour = zero.substring(0, zero.length - hour.length) + hour;
+			minute = zero.substring(0, zero.length - minute.length) + minute;
+			second = zero.substring(0, zero.length - second.length) + second;
+
+			return hour + ":" + minute + ":" + second;
+		}
 
 	$(".icon").click(function() {
 		$(this).toggleClass("active");
@@ -10555,7 +10615,7 @@ $(document).ready(function() {
 		updatePosts();
 	});
 
-	function GetFormattedDate(date) 
+	function GetFormattedDate(date)
 	{
 		var year = date.getFullYear();
 		var month = date.getMonth() + 1;
@@ -10563,8 +10623,8 @@ $(document).ready(function() {
 		return year + '/' + month + '/' + day;
 	}
 
-	function GetTime(date) 
-	{		
+	function GetTime(date)
+	{
 		var hour = date.getHours().toString();
 		var minute = date.getMinutes().toString();
 		var second = date.getSeconds().toString();
@@ -10590,7 +10650,7 @@ $(document).ready(function() {
 			data.sort(function(a, b) {
 				return (a.createAt < b.createAt);
 			});
-			
+
 			data.forEach(function(item) {
 				var date = new Date(item.createAt);
 				var time = GetTime(date);
@@ -10624,6 +10684,7 @@ $(document).ready(function() {
 		});
 	});*/
 });
+
 
 /***/ })
 /******/ ]);

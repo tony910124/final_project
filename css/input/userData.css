@@ -1,0 +1,81 @@
+.main-area {
+	max-width: 870px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.line {
+	border-top: rgba(100, 100, 100, 0.8) 1px solid;
+}
+
+.user-data-area {
+	margin: 0;
+	padding: 0;
+	color: #FFF;
+	font: 14pt Miriam, sans-serif;
+
+	&__item {
+		list-style: none;
+		box-sizing: border-box;
+		margin: 10px 0;
+		padding: 0 20px;
+		display: inline-block;
+		width: 100%;
+		background-color: rgba(100, 100, 100, 0.35);
+		border-radius: 8px;
+
+		&__userName {
+			margin: 12px auto;
+			font-size: 20pt;
+			line-height: 24pt;
+		}
+
+		&__detail {
+		   display: block;
+		   margin: 12px auto;
+		   box-sizing: border-box;
+		   /*vertical-align: bottom;*/
+
+		   &__email {
+			    margin: 10;
+			    text-align: left;
+		   }
+
+		   &__talkTimes {
+			    margin: 10;
+			    text-align: left;
+		   }
+
+		   &__newUpdate {
+			    margin: 10;
+			    text-align: left;
+		   }
+
+		   &__createAt {
+			    margin: 10;
+			    text-align: left;
+		   }
+
+		}
+
+		&__detail:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+	}
+}
+
+.logout-img {
+	position: absolute;
+	right: 0;
+	height: 60px;
+	width: auto;
+	margin: 20px;
+
+	@mixin atMedium {
+		height: 40px;
+		width: auto;
+		margin: 10px;
+	}
+}
