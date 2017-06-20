@@ -28,6 +28,7 @@
 			margin: 12px auto;
 			font-size: 20pt;
 			line-height: 24pt;
+			text-align: justify;
 		}
 
 		&__detail {

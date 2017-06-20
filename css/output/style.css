@@ -1098,7 +1098,7 @@ template {
 	margin: 0 auto;
 	padding: 35px;
 	padding-bottom: 15px;
-	background-color: rgba(100, 100, 100, 0.25);
+	background-color: rgba(0, 0, 0, 0.9);
 
 }
 
@@ -1351,6 +1351,7 @@ label {
 			margin: 12px auto;
 			font-size: 20pt;
 			line-height: 24pt;
+			text-align: justify;
 		}
 
 .message-area__item__detail {
