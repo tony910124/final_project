@@ -16,42 +16,46 @@
 				list-style: none;
 				margin: 15px 0;
 				padding: 5px 15px;
-				background-color: rgba(40, 40, 40, 0.9);
+				background-color: rgba(40, 40, 40, 0.75);
 				color: #fff;
 				cursor: pointer;
+				font: 20pt Miriam, sans-serif;
 
 				.title {
-					font: 20pt Miriam, serif;
-					margin: 8px 0;
+					margin: 15px 0;
+					padding: 0 5px;
 				}
 
 				.line {
 					border-top: #444 1px solid;
 				}
 
-				.author {
+				.detail {
 					margin: 10px 0;
-					font: 12pt Miriam, sans-serif;
+					padding: 0 5px;
+
+					&__author {
+						float: left;
+						font-size: 14pt;
+					}
+
+					&__time {
+						float: right;
+						font-size: 10pt;
+						text-align: right;
+					}
+				}
+
+				.detail:after {
+					content: '';
+					display: block;
+					clear: both;
 				}
 			}
 
 			li:hover {
-				background-color: rgba(40, 40, 40, 0.7);
+				background-color: rgba(40, 40, 40, 0.9);
 			}
 		}
-		/*&__post {
-			margin: 10px 0;
-			border-top: #fff 1px solid;
-			height: 50px;
-			
-
-			&__title {
-				color: #fff;
-			}
-
-			&__author {
-
-			}
-		}*/
 	}
 }

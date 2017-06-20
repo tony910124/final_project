@@ -1,0 +1,42 @@
+.landing-area {
+	/* relative position for slogan align */
+	display: inline-block;
+	position: relative;
+	vertical-align: bottom;
+
+	&__main-slogan, &__main-anchor {
+		position: absolute;
+		font: 10vw NuevaStd, serif;
+		color: #fff;
+		width: 100%;
+		text-align: center;
+	}
+
+	&__main-slogan {
+		top: 40%;
+
+		@mixin atSmall {
+			top: 49%;
+		}
+	}
+
+	&__main-anchor {
+		top: 58%;
+		font-size: 5vw;
+
+		a {
+			border: #fff 1px solid;
+			padding: 1vw 1vw 0 1vw;
+			/*padding-top: 1vw;
+			padding-left: 1vw;
+			padding-right: 1vw;*/
+
+			/* use for anchor animation(rwd & hover) */
+			transition: 0.3s;
+		}
+
+		a:hover {
+			background-color: rgba(187, 187, 187, 0.3);
+		}
+	}
+}

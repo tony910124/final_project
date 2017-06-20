@@ -1,0 +1,38 @@
+.post {
+	padding: 60px 0;
+	margin: 0px auto;
+	color: #fff;
+
+	&__title {
+		padding: 10px;
+		font: 20pt Miriam, sans-serif;
+		background-color: rgba(50, 50, 50, 0.6);
+	}
+
+	&__content {
+		padding: 20px 10px;
+		font: 14pt Miriam, sans-serif;
+	}
+
+	&__message {
+		/*border-top: #fff 1px solid;*/
+		margin: 10px;
+
+		&__author {
+			font: 16pt Miriam, sans-serif;
+			margin: 8px 0;
+		}
+
+		&__detail {
+			font: 12pt Miriam, sans-serif;	
+
+			&__content {
+				float: left;
+			}
+
+			&__time {
+				float: right;
+			}
+		}
+	}
+}

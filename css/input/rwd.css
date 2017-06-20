@@ -1,0 +1,29 @@
+.rwd-img {
+	max-width: 100%;
+	height: auto;
+}
+
+@define-mixin atSuperLarge {
+	@media(min-width: 1440px) {
+		@mixin-content;
+	}
+}
+
+@define-mixin atLarge {
+	@media (max-width: 1440px) {
+		@mixin-content;
+	}
+}
+
+@define-mixin atMedium {
+	@media (max-width: 768px) {
+		@mixin-content;
+	}
+}
+
+@define-mixin atSmall {
+	@media (max-width: 375px) {
+		@mixin-content;
+	}
+}
+

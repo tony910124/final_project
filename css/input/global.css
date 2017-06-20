@@ -1,10 +1,10 @@
 html {
-	min-width: 375px;
+	/*min-width: 375px;*/
 }
 
 body {
 	background-color: #000000;
-	min-width: 375px;
+	/*min-width: 375px;*/
 }
 
 footer {
@@ -12,8 +12,32 @@ footer {
 	height: 87px;
 }
 
-@define-mixin atSmall {
-	@media (max-width: 375px) {
-		@mixin-content;
+.img-small {
+	/* if width is greater than 375px */
+	display: none;
+
+	@mixin atSmall {
+		display: block;
+	}
+}
+
+.img-medium {
+	display: none;
+
+	@mixin atMedium {
+		display: block;
+	}
+
+	/* if width is less than 375px */
+	@mixin atSmall {
+		display: none;
+	}	
+}
+
+.img-large {
+	display: block;
+	/* if width less than 768px */
+	@mixin atMedium {
+		display: none;
 	}
 }

@@ -10389,18 +10389,69 @@ $(document).ready(function() {
 
 		promise.then(function() {
 			console.log("Sign In fucker");
-			window.location.href = "forum.html";
+			/*window.location.href = "forum.html";*/
 		});
 	}
 
-	$("#post").click(function() {
+	$(".icon").click(function() {
+		$(this).toggleClass("active");
+		$(".navbar__list").toggleClass("active");
+	});
+
+	$(".item").click(function() {
+		var id = $(this).children().attr("href");
+		var topValue = $(id).offset().top;
+		var navbarHeight = 60;
+
+		$(".icon").toggleClass("active");
+		$(".navbar__list").toggleClass("active");
+		$("html body").stop().animate({
+			scrollTop: topValue - navbarHeight
+		}, 1000);
+	});
+
+	$(".landing-area__main-anchor").click(function() {
+		var topValue = $("#introduction").offset().top;
+		var navbarHeight = 60;
+		$("html body").stop().animate({
+			scrollTop: topValue - navbarHeight
+		}, 1000);
+	});
+
+	$("#SignUp, #SignIn").click(function() {
+		var id = $(this).attr("id");
+		$("#SignUp, #SignIn").toggleClass("active");
+		if(id == "SignUp") {
+			$("#username").slideDown(100);
+			$("#submit").attr("value", "Sign Up Now");
+			$("#SignUp").addClass("active");
+			$("#SignIn").removeClass("active");
+		}
+		else if(id == "SignIn") {
+			$("#username").slideUp(100);
+			$("#submit").attr("value", "Sign In Now");
+			$("#SignIn").addClass("active");
+			$("#SignUp").removeClass("active");
+		}
+
+		$("#submit").attr("state", id);
+	});
+
+	/*$("#post").click(function() {
 		const title = $("#title").val();
 		const content = $("#content").val();
 		const dbPost = Posts.child(title);
-		dbPost.set({
-			createAt: firebase.database.ServerValue.TIMESTAMP,
-			title: title,
-			content: content
+		const uid = firebase.auth().currentUser.uid;
+		var username;
+
+		User.child(uid).once('value').then(function(snapshot) {
+			username = snapshot.val().username;
+			dbPost.set({
+				author: username,
+				title: title,
+				content: content,
+				createAt: firebase.database.ServerValue.TIMESTAMP
+			});
 		});
 		updatePosts();
 	});
@@ -10409,68 +10460,74 @@ $(document).ready(function() {
 		updatePosts();
 	});
 
-	function updatePosts() {
-		var $forumContent = $("#forum-content");
-		$forumContent.empty();
-
-		Posts.orderByChild("createAt").on("child_added", function(snapshot) {
-			var data = snapshot.val();
-			var title = data.title;
-			var content = data.content;
-			var $postList = $("<li>");
-			var $titleArea = $("<div>").addClass("title");
-			var $line = $("<div>").addClass("line");
-			var $content = $("<div>").addClass("author");
-			$titleArea.append(title);
-			$content.append(content);
-			$postList.append($titleArea).append($line).append($content);
-			$forumContent.append($postList);
-		});
+	function GetFormattedDate(date) 
+	{
+		var year = date.getFullYear();
+		var month = date.getMonth() + 1;
+		var day = date.getDate();
+		return year + '/' + month + '/' + day;
 	}
 
-	$(".navbar__icon").click(function() {
-		$(".navbar__icon").toggleClass("active");
-		$(".navbar__content").children().slideToggle(200);
-	});
+	function GetTime(date) 
+	{		
+		var hour = date.getHours().toString();
+		var minute = date.getMinutes().toString();
+		var second = date.getSeconds().toString();
 
-	$(".navbar__content li").click(function() {
-		var id = $(this).children().attr('href');
-		var topValue = $(id).offset().top;
-		var navbarHeight = 60;
+		var zero = "00";
+		hour = zero.substring(0, zero.length - hour.length) + hour;
+		minute = zero.substring(0, zero.length - minute.length) + minute;
+		second = zero.substring(0, zero.length - second.length) + second;
 
-		$(".navbar__icon").toggleClass("active");
-		$(".navbar__content").children().slideToggle(200);
-		$("html body").stop().animate({
-			scrollTop: topValue - navbarHeight
-		}, 1000);
+		return hour + ":" + minute + ":" + second;
+	}*/
 
-		//console.log($(id).offset().top);
-	});
+	/*function updatePosts() {
+		var $forumContent = $("#forum-content");
+		$forumContent.empty();
+		var data = [];
+		Posts.once('value', function(snapshot) {
+			snapshot.forEach(function(item){
+				var itemValue = item.val();
+				data.push(itemValue);
+			});
 
-	$(".landing__slogan a").click(function() {
-		var navbarHeight = 60;		
-		$("html body").stop().animate({
-			scrollTop: $("#introduction").offset().top - navbarHeight
-		}, 1000);
-	});
+			data.sort(function(a, b) {
+				return (a.createAt < b.createAt);
+			});
+			
+			data.forEach(function(item) {
+				var date = new Date(item.createAt);
+				var time = GetTime(date);
 
-	$("#SignUp, #SignIn").click(function() {
-		var id = $(this).attr("id");
-		$("#SignUp, #SignIn").toggleClass("active");
+				date = GetFormattedDate(date);
+				var titleArea = $("<div>").addClass("title").append(item.title);
+				var authorArea = $("<div>").addClass("detail__author").append(item.author);
+				var timeArea = $("<div>").addClass("detail__time").append(date).append("<br>").append(time);
+				var detail = $("<div>").addClass("detail").append(authorArea).append(timeArea);
+				var line = $("<div>").addClass("line");
+				var postList = $("<li>").addClass("item").append(titleArea).append(line).append(detail).attr("value", item.title);
+				$forumContent.append(postList);
+			});
+		});
+	}*/
 
-		if(id == "SignUp") {
-			$("#username").slideDown(100);
-			$("#submit").attr("value", "Sign Up Now");
-		}
-		else if(id == "SignIn") {
-			$("#username").slideUp(100);
-			$("#submit").attr("value", "Sign In Now");
-		}
+	/*$("#send").click(function() {
+		//console.log("click send");
+		var message = $("#message").val();
+		var title = $(".post__title").text();
+		const dbPost = Posts.child(title+"/message/");
+		const uid = firebase.auth().currentUser.uid;
 
-		$("#submit").attr("state", id);
-		//$("input[type=submit]").attr("id", id+"Btn");
-	});
-	
+		User.child(uid).once('value').then(function(snapshot) {
+			username = snapshot.val().username;
+			dbPost.push({
+				author: username,
+				message: message,
+				createAt: firebase.database.ServerValue.TIMESTAMP
+			});
+		});
+	});*/
 });
 
 /***/ })
