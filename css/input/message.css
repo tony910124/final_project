@@ -1,4 +1,5 @@
 .main-area {
+	max-width: 870px;
 	margin: 0 auto;
 	padding: 20px;
 }
@@ -52,5 +53,19 @@
 			display: block;
 			clear: both;
 		}
+	}
+}
+
+.logout-img {
+	position: absolute;
+	right: 0;
+	height: 60px;
+	width: auto;
+	margin: 20px;
+
+	@mixin atMedium {
+		height: 40px;
+		width: auto;
+		margin: 10px;
 	}
 }

@@ -1,33 +1,10 @@
 /* the bottom panel on the website */
 .bottom-panel {
-	display: block;
-	margin: 30px auto;
-	width: 85%;
-
-	@mixin atMedium {
-		width: 90%;
-	}
-	/*background-color: rgba(100, 100, 100, 0.3);*/
-	/*width: 100%;*/
-	/*margin: 0 auto;*/
-
-	&__left {
-		float: left;
-
-		@mixin atMedium {
-			width: 100%;
-		}
-	}
-
-	&__right {
-		display: block;
-		float: right;
-		width: 50%;
-		
-		@mixin atMedium {
-			display: none;
-		}
-	}
+	box-sizing: border-box;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	margin: 0 auto;
 }
 
 .bottom-panel:after {
@@ -62,18 +39,13 @@
 	}
 }
 
-.bottom-panel {
-	position: fixed;
-	margin: 0 auto;
-	padding: 20px;
-	bottom: 0;
-	width: 100%;
-	background-color: rgba(50, 50, 50, 0.6);
-	box-sizing: border-box;
-}
-
 .message-panel {
-	
+	max-width: 870px;
+	margin: 0 auto;
+	padding: 35px;
+	padding-bottom: 15px;
+	background-color: rgba(100, 100, 100, 0.25);
+
 	input[type=text] {
 		padding: 4px 10px;
 		margin: 0;

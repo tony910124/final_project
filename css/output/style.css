@@ -1046,46 +1046,13 @@ template {
 /* the bottom panel on the website */
 
 .bottom-panel {
-	display: block;
-	margin: 30px auto;
-	width: 85%;
-	/*background-color: rgba(100, 100, 100, 0.3);*/
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	margin: 0 auto;
 }
-
-@media (max-width: 768px) {
-
-.bottom-panel {
-		width: 90%
-}
-	}
-
-/*margin: 0 auto;*/
-
-.bottom-panel__left {
-		float: left;
-	}
-
-@media (max-width: 768px) {
-
-.bottom-panel__left {
-			width: 100%
-	}
-	}
-
-/*width: 100%;*/
-
-.bottom-panel__right {
-		display: block;
-		float: right;
-		width: 50%;
-	}
-
-@media (max-width: 768px) {
-
-.bottom-panel__right {
-			display: none
-	}
-	}
 
 .bottom-panel:after {
 	content: '';
@@ -1126,15 +1093,13 @@ template {
 }
 	}
 
-.bottom-panel {
-	position: fixed;
+.message-panel {
+	max-width: 870px;
 	margin: 0 auto;
-	padding: 20px;
-	bottom: 0;
-	width: 100%;
-	background-color: rgba(50, 50, 50, 0.6);
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	padding: 35px;
+	padding-bottom: 15px;
+	background-color: rgba(100, 100, 100, 0.25);
+
 }
 
 .message-panel input[type=text] {
@@ -1354,6 +1319,7 @@ label {
 }
 
 .main-area {
+	max-width: 870px;
 	margin: 0 auto;
 	padding: 20px;
 }
@@ -1412,6 +1378,23 @@ label {
 			display: block;
 			clear: both;
 		}
+
+.logout-img {
+	position: absolute;
+	right: 0;
+	height: 60px;
+	width: auto;
+	margin: 20px;
+}
+
+@media (max-width: 768px) {
+
+.logout-img {
+		height: 40px;
+		width: auto;
+		margin: 10px
+}
+	}
 
 /*@import "linkArea.css";*/
 
