@@ -1,0 +1,56 @@
+.main-area {
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.line {
+	border-top: rgba(100, 100, 100, 0.8) 1px solid;
+}
+
+.message-area {
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	font: 14pt Miriam, sans-serif;
+
+	&__item {
+		list-style: none;
+		box-sizing: border-box;
+		margin: 10px 0;
+		padding: 0 20px;
+		display: inline-block;
+		width: 100%;
+		background-color: rgba(100, 100, 100, 0.35);
+		border-radius: 8px;
+
+		&__content {
+			margin: 12px auto;
+			font-size: 20pt;
+			line-height: 24pt;
+		}
+
+		&__detail {
+			display: block;
+			margin: 12px auto;
+			box-sizing: border-box;
+			/*vertical-align: bottom;*/
+
+			&__author {
+				margin: 0;
+				float: left;
+			}
+
+			&__date {
+				margin: 0;
+				float: right;
+				text-align: right;
+			}
+		}
+
+		&__detail:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+	}
+}

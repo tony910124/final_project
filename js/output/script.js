@@ -10373,6 +10373,7 @@ $(document).ready(function() {
 				username: username,
 				donate: 0
 			});
+			window.location.href = "message.html";
 		});
 	}
 	
@@ -10388,10 +10389,101 @@ $(document).ready(function() {
 		});
 
 		promise.then(function() {
-			console.log("Sign In fucker");
-			/*window.location.href = "forum.html";*/
+			console.log("Hello");
+			window.location.href = "message.html";
 		});
 	}
+
+	$("#SignOut").click(function() {
+		firebase.auth().signOut();
+		window.location.href = "index.html";
+	});
+
+	firebase.auth().onAuthStateChanged(function(user) {
+		console.log("Yee");
+		UpdatePosts();
+	});
+
+	$("#Send").click(function() {
+		const message = $("#message").val();
+		const uid = firebase.auth().currentUser.uid;
+		var username;
+
+		User.child(uid).once('value').then(function(snapshot) {
+			username = snapshot.val().username;
+			Posts.push({
+				author: username,
+				message: message,
+				createAt: firebase.database.ServerValue.TIMESTAMP
+			});
+		});
+
+		UpdatePosts();
+	});
+
+	function GetFormattedDate(date) 
+	{
+		var year = date.getFullYear();
+		var month = date.getMonth() + 1;
+		var day = date.getDate();
+		return year + '/' + month + '/' + day;
+	}
+
+	function GetTime(date) 
+	{		
+		var hour = date.getHours().toString();
+		var minute = date.getMinutes().toString();
+		var second = date.getSeconds().toString();
+
+		var zero = "00";
+		hour = zero.substring(0, zero.length - hour.length) + hour;
+		minute = zero.substring(0, zero.length - minute.length) + minute;
+		second = zero.substring(0, zero.length - second.length) + second;
+
+		return hour + ":" + minute + ":" + second;
+	}
+
+
+	function UpdatePosts() {
+		var $messageArea = $(".message-area");
+		$messageArea.empty();
+
+		var data = [];
+		Posts.once('value', function(snapshot) {
+			snapshot.forEach(function(item){
+				var itemValue = item.val();
+				data.push(itemValue);
+			});
+
+			data.sort(function(a, b) {
+				return (a.createAt < b.createAt);
+			});
+			
+			data.forEach(function(item) {
+				var date = new Date(item.createAt);
+				var time = GetTime(date);
+				date = GetFormattedDate(date);
+				var message = $("<h3>").addClass("message-area__item__content").append(item.message);
+				var author = $("<h5>").addClass("message-area__item__detail__author").append(item.author);
+				var postTime = $("<h5>").addClass("message-area__item__detail__date").append(date).append($("<br>")).append(time);
+				var detail = $("<div>").addClass("message-area__item__detail").append(author).append(postTime);
+				var line = $("<div>").addClass("line");
+				var messageElement = $("<li>").addClass("message-area__item").append(message).append(line).append(detail);
+				$messageArea.append(messageElement);
+
+				/*var titleArea = $("<div>").addClass("title").append(item.title);
+				var authorArea = $("<div>").addClass("detail__author").append(item.author);
+				var timeArea = $("<div>").addClass("detail__time").append(date).append("<br>").append(time);
+				var detail = $("<div>").addClass("detail").append(authorArea).append(timeArea);
+				var line = $("<div>").addClass("line");
+				var postList = $("<li>").addClass("item").append(titleArea).append(line).append(detail).attr("value", item.title);
+				$forumContent.append(postList);*/
+			});
+		});
+	}
+
+
+
 
 	$(".icon").click(function() {
 		$(this).toggleClass("active");
@@ -10399,6 +10491,9 @@ $(document).ready(function() {
 	});
 
 	$(".item").click(function() {
+		if($(this).attr("id") == "SignOut")
+			return ;
+
 		var id = $(this).children().attr("href");
 		var topValue = $(id).offset().top;
 		var navbarHeight = 60;

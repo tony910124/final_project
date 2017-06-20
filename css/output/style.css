@@ -963,10 +963,7 @@ template {
 .section-area__section-content .video-resize {
 			display: block;
 			width: 100%;
-			height: 56.25vh;
-			/*width: 100vw;
 			height: 56.25vw;
-			margin: 0 auto;*/
 		}
 
 .two-side-area {
@@ -1113,6 +1110,39 @@ template {
 }
 	}
 
+.bottom-panel {
+	position: fixed;
+	margin: 0 auto;
+	padding: 20px;
+	bottom: 0;
+	width: 100%;
+	background-color: rgba(50, 50, 50, 0.6);
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+.message-panel input[type=text] {
+		padding: 4px 10px;
+		margin: 0;
+		float: left;
+		width: 80%;
+		font-size: 13.6pt;
+	}
+
+.message-panel input[type=submit] {
+		padding: 4px 0;
+		margin: 0;
+		float: right;
+		width: 20%;
+		font-size: 13.6pt;
+	}
+
+.message-panel:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
 /* horizontal tabs */
 
 .horizontal-tabs {
@@ -1174,62 +1204,6 @@ template {
 		display: none;
 }
 	}
-
-.horizontal-text-button-gruop {
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
-	margin: 6px 15px;
-}
-
-.horizontal-text-button-gruop .text {
-		padding: 10px 15px;
-		margin: 8px 0;
-		width: 80%;
-		-webkit-box-sizing: border-box;
-		        box-sizing: border-box;
-	}
-
-.horizontal-text-button-gruop .button {
-		display: block;
-		padding: 10px auto;
-		margin: 8px 0;
-		float: right;
-		width: 20%;
-		-webkit-box-sizing: border-box;
-		        box-sizing: border-box;
-		font-size: 12.5pt;
-	}
-
-.fixed-panel {
-	display: inline-block;
-	position: fixed;
-	bottom: 0;
-	background-color: rgba(87, 87, 87, 0.5);
-	width: 100%;
-	border: none;
-}
-
-.extra-panel {
-	margin: 0 7vw;
-}
-
-.extra-panel .panel {
-		float: left;
-		width: 50%;
-	}
-
-.extra-panel .section-area {
-		float: right;
-		width: 50%;
-	}
-
-.extra-panel .section-area__section-content__text:first-letter {
-				font-size: 5vw;
-			};
-
-.extra-panel .section-area__section-content__text {
-				font-size: 1vw;
-			}
 
 input[type=text] {
 	width: 100%;
@@ -1301,9 +1275,67 @@ label {
 	letter-spacing: 1pt;
 }
 
-.link-area ul li a {
-				
+.main-area {
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.line {
+	border-top: rgba(100, 100, 100, 0.8) 1px solid;
+}
+
+.message-area {
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	font: 14pt Miriam, sans-serif;
+}
+
+.message-area__item {
+		list-style: none;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
+		margin: 10px 0;
+		padding: 0 20px;
+		display: inline-block;
+		width: 100%;
+		background-color: rgba(100, 100, 100, 0.35);
+		border-radius: 8px;
+	}
+
+.message-area__item__content {
+			margin: 12px auto;
+			font-size: 20pt;
+			line-height: 24pt;
+		}
+
+.message-area__item__detail {
+			display: block;
+			margin: 12px auto;
+			-webkit-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+
+/*vertical-align: bottom;*/
+
+.message-area__item__detail__author {
+				margin: 0;
+				float: left;
 			}
+
+.message-area__item__detail__date {
+				margin: 0;
+				float: right;
+				text-align: right;
+			}
+
+.message-area__item__detail:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+/*@import "linkArea.css";*/
 
 html {
 	/*min-width: 375px;*/
