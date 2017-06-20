@@ -1,63 +1,114 @@
-.panel {
+/* the bottom panel on the website */
+.bottom-panel {
 	display: block;
-	max-width: 90%;
-	background: rgba(100,100,100, 0.3);
 	margin: 30px auto;
-	padding: 20px;
-	box-sizing: border-box;
+	width: 85%;
 
-	&__horizontal-tab-group {
+	@mixin atMedium {
+		width: 90%;
+	}
+	/*background-color: rgba(100, 100, 100, 0.3);*/
+	/*width: 100%;*/
+	/*margin: 0 auto;*/
 
-		&__tabs {
+	&__left {
+		float: left;
+
+		@mixin atMedium {
 			width: 100%;
-			margin: 14px 0;
-
-			ul:after {
-				content: '';
-				display: block;
-				clear: both;
-			}
-
-			ul {
-				padding: 0;
-				margin: 0;
-
-				li {
-					float: left;
-					width: 50%;
-					/*height: 100%;*/
-					text-align: center;
-					list-style: none;
-					padding: 10px 20px;
-					box-sizing: border-box;
-					background-color: rgba(125, 125, 125, 0.4);
-					font: 12pt Mariam, sans-serif;
-					letter-spacing: 1pt;
-					cursor: pointer;
-					transition: 0.3s;
-
-					a {
-						text-decoration: none;
-						color: #fff;
-						/*width: 100%;*/
-					}
-				}
-			}
-
-			ul {
-
-				li.active {
-					background-color: rgba(26, 256, 209, 0.6);
-				}
-			}
 		}
+	}
 
-		&__content {
-
-		}
+	&__right {
+		display: block;
+		float: right;
+		width: 50%;
 		
+		@mixin atMedium {
+			display: none;
+		}
 	}
 }
+
+.bottom-panel:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+
+/* the sign in/up panel */
+.formPanel {
+
+	/*max-width: 400px;*/
+	max-width: 440px;
+	padding: 2vw 4vw;
+	border: rgba(100, 100, 100, 0.5) 1px solid;
+
+	@mixin atMedium {
+		max-width: 95%;
+		padding: 3vw 6vw;
+	}
+
+	display: block;
+	background-color: rgba(100, 100, 100, 0.3);
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+/* horizontal tabs */
+
+.horizontal-tabs {
+	width: 100%;
+	margin: 1.5vw auto;
+
+	@mixin atMedium {
+		margin: 3vw auto;	
+	}
+	padding: 0;
+
+	&__item {
+		float: left;
+		display: inline-block;
+		width: 50%;
+		padding: 1.5vw 0;
+		font: 2.5vw Miriam, sans-serif;
+
+		@mixin atMedium {
+			padding: 1.8vw 0;
+			font-size: 4vw;	
+		}
+		color: #fff;
+		text-align: center;
+		background-color: rgba(125, 125, 125, 0.4);
+		box-sizing: border-box;
+	}
+
+	&__item.active {
+		background-color: rgba(26, 256, 209, 0.6);
+	}
+}
+
+.horizontal-tabs:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.form-description {
+	width: 90%;
+
+	@mixin atMedium {
+		display: none;
+	}
+	
+	margin: 0 auto;
+	font: 2vw Miriam, sans-serif;
+	color: #fff;
+	text-align: justify-all;
+}
+
+
 
 .horizontal-text-button-gruop {
 	box-sizing: border-box;
@@ -88,4 +139,28 @@
 	background-color: rgba(87, 87, 87, 0.5);
 	width: 100%;
 	border: none;
+}
+
+.extra-panel {
+	margin: 0 7vw;
+
+	.panel {
+		float: left;
+		width: 50%;
+	}
+
+	.section-area {
+		float: right;
+		width: 50%;
+
+		&__section-content {
+			&__text:first-letter {
+				font-size: 5vw;
+			};
+
+			&__text {
+				font-size: 1vw;
+			}
+		}
+	}
 }

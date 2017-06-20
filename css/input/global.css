@@ -4,6 +4,9 @@ html {
 
 body {
 	background-color: #000000;
+	max-width: 1920px;
+	margin: 0 auto;
+	
 	/*min-width: 375px;*/
 }
 

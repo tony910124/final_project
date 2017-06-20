@@ -5,7 +5,13 @@
 	}
 
 	&__section-content {
-		margin: 7.5vw;
+
+		margin: 4vw 5vw;
+
+		@mixin atMedium {
+			margin: 7.5vw;
+		}
+
 		text-align: justify;
 
 		&__border-img {
@@ -13,35 +19,78 @@
 		}
 
 		&__quote {
-			margin: 2vw 0;
-			font: 5vw NuevaStd, serif;
+			margin: 8px 0;
+			font: 28px NuevaStd, serif;
+
+			@mixin atLarge {
+				margin: 1vw 0;
+				font-size: 2vw;
+			}
+
+			@mixin atMedium {
+				margin: 2vw 0;
+				font-size: 5vw;
+			}
+
 			color: #F1C2A4;
 		}
 
 		&__text:first-letter {
-			font-size: 8vw;
+			font-size: 56px;
+
+			@mixin atLarge {
+				font-size: 5vw;
+			}
+
+			@mixin atMedium {
+				font-size: 8vw;
+			}
 		}
 
 		&__text {
 			border-left: #fff 1px solid;
-			margin: 6vw 0;
-			padding-left: 6vw;
-			font: 4vw Miriam, sans-serif;
 			color: #fff;
-			line-height: 6.5vw;
+			margin: 0;
+			padding-left: 2.5vw;
+
+			font: 36px Miriam, sans-serif;
+			line-height: 42px;
+
+			@mixin atLarge {
+				font-size: 2.5vw;
+				line-height: 3vw;
+			}
+
+			@mixin atMedium {
+				margin: 6vw 0;
+				padding-left: 6vw;
+				font-size: 4vw;
+				line-height: 6.5vw;
+			}
 		}
 
 		&__img-list {
 			display: block;
-			padding: 0;
-			margin: 6vw 0;
 			text-align: center;
+			padding: 0;
+			margin: 0;
+
+			@mixin atMedium {
+				margin: 6vw 0;
+			}
+			
 
 			.item {
-				padding: 0;
-				margin: 0;
-				float: left;
-				width: 33.3%;
+				margin-bottom: 1.5vw;
+				width: 100%;
+				float: none;
+
+				@mixin atMedium {
+					padding: 0;
+					margin: 0;
+					float: left;
+					width: 33.3%;
+				}
 
 				img {
 					vertical-align: bottom;
@@ -56,21 +105,77 @@
 		}
 
 		&__overflow-item {
-			margin: 8vw -7.5vw;
+			margin: 4vw -5vw;
+
+			@mixin atMedium {
+				margin: 8vw -7.5vw;
+			}
 		}
 
 		.video-resize {
 			display: block;
-			width: 100vw;
+			width: 100%;
+			height: 56.25vh;
+			/*width: 100vw;
 			height: 56.25vw;
-			margin: 0 auto;
+			margin: 0 auto;*/
+		}
+	}
+}
+
+.two-side-area {
+	margin: 6vw auto;
+
+	.large-left {
+		float: left;
+		width: 40%;
+
+		@mixin atMedium {
+			float: none;
+			width: 100%;
+		}
+	}
+
+	.large-right {
+		float: right;
+		width: 55%;
+
+		@mixin atMedium {
+			float: none;
+			width: 100%;
 		}
 	}
 }
 
 
+.two-side-area:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.separator {
+	margin: 5vw 0;
+
+	@mixin atMedium {
+		margin: 0;
+	}
+}
+
+.decrease-overflow-margin {
+	/*margin: 1vw auto;*/
+	/*margin: 1vw -7.5vw;*/
+
+	@mixin atMedium {
+		margin: 0;
+	}
+}
+
 /* not good at large size */
 .container {
 	max-width: 1440px;
 	margin: 0 auto;
+
+	/* use for debug the container area */
+	/*background-color: rgba(255, 0, 0, 0.5);*/
 }

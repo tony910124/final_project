@@ -1,8 +1,16 @@
 input[type=text] {
 	width: 100%;
-	padding: 10px 15px;
-	margin: 8px 0;
 	display: inline-block;
+	padding: 1vw 2vw;
+	margin: 1vw 0;
+	font: 2vw Miriam, sans-serif;
+
+	@mixin atMedium {
+		font-size: 4vw;
+		padding: 1.8vw 2vw;
+		margin: 1.8vw 0;
+	}
+
 	color: #fff;
 	box-sizing: border-box;
 	background-color: rgba(0, 0, 0, 0);
@@ -14,9 +22,16 @@ input[type=submit] {
 	width: 100%;
 	background-color: rgba(26, 256, 209, 0.6);
 	color: #fff;
-	padding: 10px 0;
-	margin: 14px auto;
-	font: 16pt Mariam, sans-serif;
+	padding: 1vw 0;
+	margin: 1.5vw auto;
+	font: 3vw Mariam, sans-serif;
+
+	@mixin atMedium {
+		padding: 2.5vw 0;
+		margin: 4vw auto;
+		font-size: 5vw;
+	}
+
 	letter-spacing: 1pt;
 	border: none;
 	cursor: pointer;

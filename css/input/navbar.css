@@ -28,10 +28,14 @@
 		margin: 0;
 		padding: 0;
 		width: 100%;
-		font: 3vw NuevaStd, serif;
+		font: 43px NuevaStd, serif;
 		color: #fff;
 		text-align: center;
 		/* animation time */
+
+		@mixin atLarge {
+			font-size: 3vw;
+		}
 
 		@mixin atMedium {
 			/* align the bottom of navbar */
