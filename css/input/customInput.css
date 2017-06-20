@@ -1,9 +1,15 @@
 input[type=text] {
 	width: 100%;
 	display: inline-block;
-	padding: 1vw 2vw;
-	margin: 1vw 0;
-	font: 2vw Miriam, sans-serif;
+	font: 30px Miriam, sans-serif;
+	padding: 15px 30px;
+	margin: 15px 0;
+
+	@mixin atLarge {
+		padding: 1vw 2vw;
+		margin: 1vw 0;
+		font-size: 2vw;
+	}
 
 	@mixin atMedium {
 		font-size: 4vw;
@@ -22,9 +28,15 @@ input[type=submit] {
 	width: 100%;
 	background-color: rgba(26, 256, 209, 0.6);
 	color: #fff;
-	padding: 1vw 0;
-	margin: 1.5vw auto;
-	font: 3vw Mariam, sans-serif;
+	padding: 18px 0;
+	margin: 16px auto;
+	font: 44px Mariam, sans-serif;
+
+	@mixin atLarge {
+		padding: 1vw 0;
+		margin: 1.5vw auto;
+		font-size: 3vw;
+	}
 
 	@mixin atMedium {
 		padding: 2.5vw 0;
