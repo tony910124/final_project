@@ -1230,7 +1230,7 @@ template {
 }
 	}
 
-input[type=text] {
+input[type=text], input[type=password] {
 	width: 100%;
 	display: inline-block;
 	font: 30px Miriam, sans-serif;
@@ -1246,7 +1246,7 @@ input[type=text] {
 
 @media (max-width: 1440px) {
 
-input[type=text] {
+input[type=text], input[type=password] {
 		padding: 1vw 2vw;
 		margin: 1vw 0;
 		font-size: 2vw;
@@ -1255,7 +1255,7 @@ input[type=text] {
 
 @media (max-width: 768px) {
 
-input[type=text] {
+input[type=text], input[type=password] {
 		font-size: 4vw;
 		padding: 1.8vw 2vw;
 		margin: 1.8vw 0;
