@@ -10473,6 +10473,7 @@ $(document).ready(function() {
 
 	firebase.auth().onAuthStateChanged(function(user) {
 		console.log("Yee");
+		UpdatePosts();
 		UpdateUsers();
 	});
 

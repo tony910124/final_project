@@ -1,0 +1,29 @@
+.manager-area {
+	max-width: 870px;
+	margin: 0 auto;
+}
+
+.user-list {
+	padding: 20px;
+	margin: 20px;
+	color: #fff;
+
+	&__user {
+		list-style: none;
+		width: 100%;
+		margin: 0 auto;
+
+		&__username, &__donate, &__date {
+			float: left;
+			width: 33%;
+			text-align: center;
+		}
+
+	}
+
+	&__user:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
